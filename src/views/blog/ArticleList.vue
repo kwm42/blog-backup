@@ -1,5 +1,8 @@
 <template>
     <div>
+        <div v-if="errMsg!=null">
+            {{errMsg}}
+        </div>
         <div class="selector">
             <strong>每页显示</strong>
             <el-select v-model="pageSize">
@@ -20,7 +23,7 @@
                     <router-link :to="{name:'article-detail',params:{id:article.id}}">
                         <h2>{{article.title}}</h2>
                     </router-link>
-                    <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+                    <!-- <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button> -->
                 </div>
                 <div v-for="o in 2" :key="o" class="text item">
                     {{'列表内容 ' + article.description }}
@@ -36,29 +39,32 @@
 <script>
     export default {
         name: "ArticleList",
-        data:function () {
+        data: function () {
             return {
-                articles:[
-                    {
-                        id:1,
-                        title:'title1',
-                        description:'文章1的表述'
-                    },{
-                        id:2,
-                        title:'title2',
-                        description:'文章2的表述'
-                    },{
-                        id:3,
-                        title:'title3',
-                        description:'文章3的表述'
-                    },
-                ],
-                pageSize:10, //default size
+                articles: [],
+                pageSize: 10, //default size
+                errMsg: null
             }
         },
-        watch:{
-            pageSize:function () {
+        mounted: function () {
+            this.getArticleList();
+        },
+        watch: {
+            pageSize: function () {
                 alert('pageSize changed')
+            }
+        },
+        methods: {
+            getArticleList() {
+                this.$axios.get('/api/articles')
+                    .then(res => {
+                        res = res.data
+                        if (res.success) {
+                            this.articles = res.data
+                        } else {
+                            this.errMsg = "请求文章列表失败"
+                        }
+                    })
             }
         }
     }
@@ -68,23 +74,39 @@
     .selector {
         float: right;
     }
-    .selector div{
+
+    .selector div {
         width: 80px;
     }
-    .selector > *{
+
+    .selector > * {
         margin: 5px;
     }
-    .article-list{
+
+    .article-list {
         width: 60%;
         margin: auto;
     }
-    .box-card{
+
+    .box-card {
         margin: 20px auto;
     }
-    .box-card a{
+
+    .box-card a {
         text-decoration: none;
     }
-    .box-card a:hover{
+
+    .box-card a:hover {
         color: blue;
+    }
+
+    @media screen and (max-width: 997px) {
+        .article-list {
+            width: 90%;
+            margin: auto;
+        }
+        .selector{
+            display: none;
+        }
     }
 </style>

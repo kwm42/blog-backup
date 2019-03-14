@@ -1,7 +1,15 @@
 module.exports = {
-    publicPath:'./',
+    publicPath: './',
 
-    devServer:{
-        proxy:'http:127.0.0.1:8081'
+    devServer: {
+        proxy: {
+            '/api': {
+                target: 'http://120.78.122.146:18090',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/api': ''
+                }
+            }
+        }
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="hidden-md-and-down">
         <el-menu :default-active="activeIndex" class="menu" mode="horizontal" @select="handleSelect">
             <el-menu-item index="1">
                 <router-link :to="{name:'welcome'}">Home</router-link>
@@ -29,6 +29,11 @@
         data: function () {
             return {
                 activeIndex: '1'
+            }
+        },
+        methods:{
+            handleSelect(){
+                
             }
         }
     }

@@ -1,6 +1,11 @@
 <template>
     <div class="home">
-        <home-nav></home-nav>
+        <div id="pc-menu" class="hidden-md-and-down">
+            <home-nav></home-nav>
+        </div>
+        <div id="phone-menu" class="hidden-md-and-up">
+            <menu-for-phone></menu-for-phone>
+        </div>
         <transition enter-active-class="animated pulse"
                     leave-active-class="animated fadeOut"
                     mode="out-in">
@@ -12,9 +17,18 @@
 <script>
 
     import HomeNav from "../components/HomeNav";
+    import MenuForPhone from "../components/MenuForPhone";
 
     export default {
         name: 'home',
-        components: {HomeNav}
+        components: {HomeNav,MenuForPhone}
     }
 </script>
+
+<style scoped>
+    #phone-menu{
+        position: absolute;
+        /*margin-left: -100%;*/
+    }
+
+</style>

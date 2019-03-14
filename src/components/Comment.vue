@@ -1,21 +1,21 @@
 <template>
     <div>
         <div class="top">
-            <el-input placeholder="请输入内容" v-model="input3">
-                <template slot="prepend">Http://</template>
+            <el-input placeholder="请输入姓名" v-model="username">
+                <template slot="prepend">Name:</template>
             </el-input>
-            <el-input placeholder="请输入内容" v-model="input3">
-                <template slot="prepend">Http://</template>
+            <el-input placeholder="请输入email" v-model="email">
+                <template slot="prepend">Email:</template>
             </el-input>
-            <el-input placeholder="请输入内容" v-model="input3">
+            <!-- <el-input placeholder="请输入" v-model="input3">
                 <template slot="prepend">Http://</template>
-            </el-input>
+            </el-input> -->
         </div>
         <div class="content">
             <div>
-                <el-label class="fl"><i>comment here:</i></el-label>
+                <label class="fl"><i>comment here:</i></label>
             </div>
-            <el-input type="textarea"></el-input>
+            <el-input type="textarea" v-model="content"></el-input>
         </div>
         <div class="operation">
             <el-button type="primary">提交</el-button>
@@ -25,7 +25,14 @@
 
 <script>
     export default {
-        name: "Comment"
+        name: "Comment",
+        data:function(){
+            return {
+                email:'',
+                username:'',
+                content:''
+            }
+        }
     }
 </script>
 

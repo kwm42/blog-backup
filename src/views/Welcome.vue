@@ -42,7 +42,7 @@
         },
         methods: {
             goBlog(){
-                this.$router.push({name:'blog'})
+                this.$router.push({name:'list'})
             }
         }
     }

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <!--<span id="test">hhhhh</span>-->
   </div>
 </template>
 
@@ -14,6 +15,9 @@ export default {
         navigation:true
       }
     }
+  },
+  mounted:function(){
+    
   }
 }
 </script>
@@ -25,5 +29,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+#test{
+  background-color: brown;
+}
+@media screen and (max-width: 980px) {
+  #test{
+    background-color: blue;
+  }
 }
 </style>
