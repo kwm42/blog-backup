@@ -6,6 +6,9 @@ import ArticleList from '@/views/blog/ArticleList'
 import AboutMe from '@/views/blog/AboutMe'
 import ArticleDetail from '@/views/blog/ArticleDetail'
 
+import ManageHome from '@/views/ManageHome'
+import Publish from '@/views/manage/Publish'
+
 Vue.use(Router)
 
 export default new Router({
@@ -18,8 +21,7 @@ export default new Router({
             path: '/welcome',
             name: 'welcome',
             component: Welcome
-        },
-        {
+        },{
             path:'/blog',
             name:'blog',
             component: Blog,
@@ -36,6 +38,17 @@ export default new Router({
                     path:'/blog/detail/:id',
                     name:'article-detail',
                     component:ArticleDetail
+                }
+            ]
+        },{
+            path:'/manage',
+            name:'manage',
+            component:ManageHome,
+            children: [
+                {
+                    path:'/manage/publish',
+                    name:'publish',
+                    component:Publish
                 }
             ]
         }
