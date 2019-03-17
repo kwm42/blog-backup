@@ -12,15 +12,15 @@
             </li>
         </ul>
         <full-page :options="options" id="fullpage">
-            <div class="section">
-                <div class="page1">
+            <div class="section page1">
+                <div>
                     <img src="../assets/logo.png" alt="" class="animated infinite bounce">
                     <el-button @click="goBlog()">go articles</el-button>
                 </div>
             </div>
-            <div class="section">
+            <div class="section page2">
             </div>
-            <div class="section">
+            <div class="section page3">
                 <h3>Section 3</h3>
             </div>
         </full-page>
@@ -36,7 +36,7 @@
                     menu: '#menu',
                     navigation: true,
                     anchors: ['page1', 'page2', 'page3'],
-                    sectionsColor: ['#1bcee6', '#ee1a59', '#2c3e4f']
+                    // sectionsColor: ['#1bcee6', '#ee1a59', '#EFDDEF']
                 }
             }
         },
@@ -60,9 +60,22 @@
         font-size: 1.1em
     }
 
-    .page1 img{
+    .page1 div img{
         display: block;
         margin: auto;
+    }
+
+    .page1{
+        background-image: url("../static/img/welcome_bg1.jpg");
+        background-size: cover;
+    }
+    .page2{
+        background-image: url("../static/img/welcome_bg2.jpg");
+        background-size: cover;
+    }
+    .page3{
+        background-image: url("../static/img/welcome_bg3.jpg");
+        background-size: cover;
     }
 
     ul {

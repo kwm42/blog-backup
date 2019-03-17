@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import './plugins/element.js'
 import VueFullPage from 'vue-fullpage.js'
+import VueMarkdown from 'vue-markdown'
 import Axios from 'axios';
 
 import '../node_modules/animate.css/animate.css'
@@ -20,5 +21,6 @@ Vue.prototype.$axios=Axios
 new Vue({
   router,
   store,
+  components:{'vue-markdown':VueMarkdown},
   render: function (h) { return h(App) }
 }).$mount('#app')

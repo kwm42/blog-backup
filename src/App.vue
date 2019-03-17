@@ -2,6 +2,7 @@
   <div id="app">
     <router-view></router-view>
     <!--<span id="test">hhhhh</span>-->
+    <!--<vue-markdown>## asas</vue-markdown>-->
   </div>
 </template>
 
