@@ -5,7 +5,7 @@
             <p>name: KWM42</p>
             <p>email: kwm2596123568@gmail.com</p>
             <p>school: FuZhou University</p>
-            <p>目前是一名大三学生，不过技术不怎么样，常使用 Java Vue.js，希望成为一名 Java 开发工程师。</p>
+            <p>目前是一名大三学生，不过技术不怎么样，常使用 Java、Vue.js、<del>C++</del>，希望成为一名 Java 开发工程师。</p>
             <p>github: <a href="https://github.com/kwm42">kwm42</a></p>
         </div>
         <div>

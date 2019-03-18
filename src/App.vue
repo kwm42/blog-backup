@@ -1,8 +1,6 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <!--<span id="test">hhhhh</span>-->
-    <!--<vue-markdown>## asas</vue-markdown>-->
   </div>
 </template>
 
@@ -14,7 +12,8 @@ export default {
       options:{
         sectionsColor:["red","green","blue"],
         navigation:true
-      }
+      },
+      value:''
     }
   },
   mounted:function(){

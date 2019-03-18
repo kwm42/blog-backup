@@ -31,7 +31,6 @@
             </el-card>
         </div>
         <div class="navigation">
-
         </div>
     </div>
 </template>

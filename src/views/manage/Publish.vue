@@ -9,7 +9,7 @@
                 <el-input v-model="description"></el-input>
             </el-form-item>
             <el-form-item label="content">
-                <textarea name="" id="" cols="30" rows="10" v-model="content"></textarea>
+
             </el-form-item>
             <el-form-item>
                 <el-button variant="info" @click="postArticle()">提交</el-button>
@@ -25,7 +25,7 @@
             return {
                 title:'',
                 description:'',
-                content:''
+                content:'',
             }
         },
         methods:{
