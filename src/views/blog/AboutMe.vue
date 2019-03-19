@@ -1,6 +1,6 @@
 <template>
     <div id="wrapper">
-        <h2>about me</h2>
+        <span>about me</span>
         <div id="self">
             <p>name: KWM42</p>
             <p>email: kwm2596123568@gmail.com</p>
@@ -30,11 +30,19 @@
         padding: 10px 100px 0px 100px ;
         background-color: var(--translucent-white);
         margin: 20px auto;
+        overflow-x: hidden;
     }
     #self{
         width:100%;
         border-left: 3px solid grey;
         text-align: left;
         padding-left: 10px;
+    }
+    @media screen and (max-width: 997px){
+        #wrapper{
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
     }
 </style>

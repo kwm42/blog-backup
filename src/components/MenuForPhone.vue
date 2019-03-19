@@ -2,7 +2,7 @@
     <div>
         <el-menu
                 default-active="2"
-                class="el-menu-vertical-demo"
+                class="el-menu-vertical"
                 @open="handleOpen"
                 @close="handleClose">
             <el-menu-item index="1">
@@ -42,5 +42,7 @@
 </script>
 
 <style scoped>
-
+    .el-menu-vertical > *{
+        border-bottom: 1px solid #DDD;
+    }
 </style>

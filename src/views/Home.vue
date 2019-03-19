@@ -1,15 +1,14 @@
 <template>
     <div class="home">
-        <div id="pc-menu" class="hidden-md-and-down">
+        <!-- <div id="pc-menu" class="hidden-md-and-down" style="display:none">
             <home-nav></home-nav>
-        </div>
+        </div> -->
         <div id="phone-menu" class="hidden-md-and-up">
             <div id="menu-switch">
-                <el-button class="switch" @click="show=true" v-show="!show">open</el-button>
-                <el-button class="switch" @click="show=false" v-show="show">close</el-button>
-                <span>KWM's blog</span>
+                <span class="switch" @click="show=true" v-show="!show">open</span>
+                <span class="switch" @click="show=false" v-show="show">close</span>
             </div>
-            <div v-show="show">
+            <div v-show="show" class="top-draw">
                 <menu-for-phone></menu-for-phone>
             </div>
         </div>
@@ -40,11 +39,15 @@
 </script>
 
 <style scoped>
-    #phone-menu{
-        /*position: absolute;*/
-        /*margin-left: -100%;*/
+    .switch{
+        position: fixed;
+        top:0px;
+        left:0px;
+        border: 0px;
+        background: transparent;
+        z-index: 10;
     }
-    #menu-switch{
-        text-align: left;
+    .el-button+.el-button{
+        margin-left: 0px;
     }
 </style>

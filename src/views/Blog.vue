@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div id="bg"></div>
+        <!-- <div id="bg"></div> -->
         <div id="wrapper">
             <Home></Home>
         </div>
