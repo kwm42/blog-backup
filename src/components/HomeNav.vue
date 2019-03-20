@@ -1,14 +1,14 @@
 <template>
     <div class="hidden-md-and-down">
-        <el-menu :default-active="activeIndex" class="menu" mode="horizontal" @select="handleSelect">
+        <el-menu :default-active="activeIndex" class="pc-menu" mode="horizontal" @select="handleSelect">
             <el-menu-item index="1">
                 <router-link :to="{name:'welcome'}">Home</router-link>
             </el-menu-item>
             <el-submenu index="2">
                 <template slot="title">归档</template>
-                <el-menu-item index="2-1">选项1</el-menu-item>
-                <el-menu-item index="2-2">选项2</el-menu-item>
-                <el-menu-item index="2-3">选项3</el-menu-item>
+                <el-menu-item v-for="(archieve,index) in archieves" :key="index">
+                    <router-link to="#">{{archieve.date}}({{archieve.summary}})</router-link>
+                </el-menu-item>
             </el-submenu>
             <el-menu-item index="3">
                 <router-link :to="{name:'list'}">所有文章</router-link>
@@ -28,22 +28,30 @@
         name: "HomeNav",
         data: function () {
             return {
-                activeIndex: '1'
+                activeIndex: '3',
             }
         },
-        methods:{
-            handleSelect(){
-                
+        computed: {
+            archieves:function () {
+                return this.$store.state.archieves
+            }
+        },
+        methods: {
+            handleSelect() {
             }
         }
     }
 </script>
 
 <style scoped>
-    .menu li a{
+    .pc-menu li a {
         width: 100%;
         height: 100%;
         display: inline-block;
         text-decoration: none;
+    }
+
+    .pc-menu a {
+        text-decoration: none
     }
 </style>

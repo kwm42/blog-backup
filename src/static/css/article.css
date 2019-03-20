@@ -5,3 +5,9 @@ pre{
     overflow: auto;
 }
 
+p{
+    font-size: 16px;
+    text-align: left;
+    text-shadow: 0.5px 0.5px 1px gray;
+    word-break: break-all
+}

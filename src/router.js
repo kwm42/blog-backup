@@ -9,6 +9,8 @@ import ArticleDetail from '@/views/blog/ArticleDetail'
 import ManageHome from '@/views/ManageHome'
 import Publish from '@/views/manage/Publish'
 
+import Test from '@/views/Test'
+
 Vue.use(Router)
 
 export default new Router({
@@ -38,6 +40,10 @@ export default new Router({
                     path:'/blog/detail/:id',
                     name:'article-detail',
                     component:ArticleDetail
+                },{
+                    path:'/blog/list/archieve/:date',
+                    name:'archieve-list',
+                    component:ArticleList
                 }
             ]
         },{
@@ -51,6 +57,10 @@ export default new Router({
                     component:Publish
                 }
             ]
+        },{
+            path:'/test',
+            name:'test',
+            component:Test
         }
     ]
 })

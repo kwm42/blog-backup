@@ -10,9 +10,9 @@
             </el-menu-item>
             <el-submenu index="2">
                 <template slot="title">归档</template>
-                <el-menu-item index="2-1">选项1</el-menu-item>
-                <el-menu-item index="2-2">选项2</el-menu-item>
-                <el-menu-item index="2-3">选项3</el-menu-item>
+                <el-menu-item v-for="(archieve,index) in archieves" :key="index">
+                    {{archieve.date}}( {{archieve.summary}} )
+                </el-menu-item>
             </el-submenu>
             <el-menu-item index="3">
                 <router-link :to="{name:'list'}">所有文章</router-link>
@@ -30,19 +30,44 @@
 <script>
     export default {
         name: "MenuForPhone",
-        methods:{
-            handleClose(){
+        data: function () {
+            return {
+            }
+        },
+        computed:{
+          archieves:{
+              get() {
+                  return this.$store.state.archieves
+              },
+              set(val) {
+              }
+          }
+        },
+        methods: {
+            handleClose() {
 
             },
-            handleOpen(){
+            handleOpen() {
 
             }
+        },
+        mounted: function () {
+            this.archieves=this.$store.getters.archieves
         }
     }
 </script>
 
 <style scoped>
-    .el-menu-vertical > *{
+    .el-menu-vertical > * {
         border-bottom: 1px solid #DDD;
+    }
+
+    .el-menu-vertical a {
+        text-decoration: none;
+        color: blue
+    }
+
+    .el-menu-item:hover {
+        background-color: cornflowerblue;
     }
 </style>

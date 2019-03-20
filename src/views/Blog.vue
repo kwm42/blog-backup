@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- <div id="bg"></div> -->
+        <div id="bg"></div>
         <div id="wrapper">
             <Home></Home>
         </div>
@@ -16,8 +16,6 @@
 </script>
 
 <style scoped>
-    #wrapper{
-    }
     #bg{
         position: fixed;
         z-index: -100;
