@@ -1,5 +1,8 @@
 <template>
   <div class="detail-wrapper">
+    <div v-show="show">
+      <p>请稍等，正载入文章</p>
+    </div>
     <div>
       <h1 class="title">{{article.title}}</h1>
       <span>{{article.createTime}}</span>
@@ -14,55 +17,62 @@
 </template>
 
 <script>
-import Comment from "../../components/Comment";
-export default {
-  name: "ArticleDetail",
-  // props:['article'],
-  data: function() {
-    return {
-      id: this.$route.params.id,
-      article: {}
-    };
-  },
-  components: { Comment },
-  methods: {
-    getArticleDetail() {
-      this.$axios.get("/api/articles/" + this.id).then(res => {
-        res = res.data;
-        if (res.success) {
-          this.article = res.data;
-        }
-      });
+  import Comment from "../../components/Comment";
+
+  export default {
+    name: "ArticleDetail",
+    // props:['article'],
+    data: function () {
+      return {
+        id: this.$route.params.id,
+        show: true,
+        article: {}
+      };
+    },
+    components: {Comment},
+    methods: {
+      getArticleDetail() {
+        this.$axios.get("/api/articles/" + this.id).then(res => {
+          res = res.data;
+          if (res.success) {
+            this.article = res.data;
+          }
+        })
+      }
+    },
+    mounted: function () {
+      this.getArticleDetail();
     }
-  },
-  mounted: function() {
-    this.getArticleDetail();
-  }
-};
+  };
 </script>
 
 <style scoped>
-@import url('../../static/css/article.css');
-.detail-wrapper {
-  width: 60%;
-  margin: auto;
-  background: var(--translucent-white);
-}
-.comment {
-  margin-top: 40px;
-}
-.space {
-  height: 100px;
-}
-@media screen and (max-width: 997px) {
+  @import url('../../static/css/article.css');
+
   .detail-wrapper {
-    width: 100%;
+    width: 60%;
     margin: auto;
     background: var(--translucent-white);
   }
-  .title {
-    margin: 0px;
-    padding: 0px;
+
+  .comment {
+    margin-top: 40px;
   }
-}
+
+  .space {
+    height: 100px;
+  }
+
+  @media screen and (max-width: 997px) {
+    .detail-wrapper {
+      width: 100%;
+      margin: auto;
+      background: var(--translucent-white);
+    }
+
+    .title {
+      margin: 0px;
+      padding: 0px;
+    }
+  }
 </style>

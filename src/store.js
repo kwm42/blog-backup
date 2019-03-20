@@ -14,7 +14,11 @@ export default new Vuex.Store({
     },
     getArchieves(state){
       return state.archieves
+    },
+    getArticlesByArchieve:(state)=>(date)=>{
+      return articles.find(article.date=date)
     }
+
   },
   mutations: {
     setArticles(state,articles){

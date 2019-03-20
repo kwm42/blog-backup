@@ -1,6 +1,5 @@
 <template>
     <div>
-        <span>kkk</span>
         <el-form id="form">
             <el-form-item label="title">
                 <el-input v-model="title"></el-input>
