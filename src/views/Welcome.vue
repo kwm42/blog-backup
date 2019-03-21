@@ -1,29 +1,29 @@
 <template>
-    <div>
-        <ul id="menu">
-            <li>
-                <a href="#page1">Section 1</a>
-            </li>
-            <li>
-                <a href="#page2">Section 2</a>
-            </li>
-            <li>
-                <a href="#page3">Section 3</a>
-            </li>
-        </ul>
-        <full-page :options="options" id="fullpage">
-            <div class="section page1">
-                <div>
-                    <img src="../assets/logo.png" alt="" class="animated infinite bounce">
-                    <el-button @click="goBlog()">go articles</el-button>
-                </div>
+    <div id="wrapper">
+        <div class="main-title">
+            <div class="logo">
+                <img src="../../src/assets/logo.png" alt="logo">
             </div>
-            <div class="section page2">
+            <div class="link">
+                <span><router-link :to="{name:'list'}">blog</router-link></span>
+                <span><router-link to="#">aboutme</router-link></span>
+                <span><router-link to="#">github</router-link></span>
             </div>
-            <div class="section page3">
-                <h3>Section 3</h3>
-            </div>
-        </full-page>
+        </div>
+        <vue-particles
+            class="particles"
+            color="#efefef"
+            :particleOpacity="0.7"
+            :particlesNumber="80"
+            shapeType="circle"
+            :particleSize="8"
+            linesColor="#dedede"
+            :lineLinked="false"
+            :moveSpeed="3"
+            :hoverEffect="false"
+            :clickEffect="false"
+        >
+        </vue-particles>
     </div>
 </template>
 
@@ -32,64 +32,62 @@
         name: 'app',
         data() {
             return {
-                options: {
-                    menu: '#menu',
-                    navigation: true,
-                    anchors: ['page1', 'page2', 'page3'],
-                    // sectionsColor: ['#1bcee6', '#ee1a59', '#EFDDEF']
-                }
             }
         },
         methods: {
-            goBlog(){
-                this.$router.push({name:'list'})
-            }
         }
     }
 </script>
 
 <style scoped>
-    #menu {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 70;
-        -webkit-font-smoothing: antialiased;
-        -moz-font-smoothing: antialiased;
-        letter-spacing: 1px;
-        font-size: 1.1em
-    }
 
-    .page1 div img{
+    #wrapper{
+        position: relative;
+        height: 100%;
+        align-items: center;
+        display: flex;
+        background-color: #70a1ff;
+        /*background-color: brown;*/
+        justify-content: center;
+    }
+    .particles{
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .main-title{
+        z-index: 100;
+        width: 50%;
+        height:200px;
+        text-align: center;
+        align-items: center;
+    }
+    .logo{
         display: block;
         margin: auto;
+        width: 100px;
+        height:100px;
     }
-
-    .page1{
-        background-image: url("../static/img/welcome_bg1.jpg");
-        background-size: cover;
+    .logo > img{
+        width: 100%;
+        height:100%;
     }
-    .page2{
-        background-image: url("../static/img/welcome_bg2.jpg");
-        background-size: cover;
+    .link{
+        margin-top: 10px;
     }
-    .page3{
-        background-image: url("../static/img/welcome_bg3.jpg");
-        background-size: cover;
+    .link > span{
+        margin: 10px;
+        font-size: 25px;
     }
-
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    li {
-        display: inline-block;
-        margin: 0 10px;
-    }
-
-    a {
-        color: #2f3542;
+    .link a{
         text-decoration: none;
+        color: #EEE;
+    }
+    .link a:hover{
+        text-decoration: none;
+        text-shadow: 0px 0px 5px #ccc;
     }
 </style>

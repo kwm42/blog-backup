@@ -5,6 +5,8 @@ import store from './store'
 import './plugins/element.js'
 import VueFullPage from 'vue-fullpage.js'
 import Axios from 'axios'
+import VueParticles from 'vue-particles'
+Vue.use(VueParticles)
 
 import '../node_modules/animate.css/animate.css'
 import '../node_modules/fullpage.js/dist/fullpage.css'
