@@ -67,7 +67,7 @@
     },
     methods: {
       getArticleList() {
-        this.$axios.get('/api/articles')
+        this.$axios.get('120.78.122.146:18090/articles')
           .then(res => {
             res = res.data
             console.log('articles', res.data)
@@ -83,7 +83,7 @@
         if(date==undefined){
           console.error("no date params")
         }else{
-          this.$axios.get('/api/archieve/'+date)
+          this.$axios.get('120.78.122.146:18090/archieve/'+date)
             .then(res=>{
               res=res.data
               console.log('articles',res.data)

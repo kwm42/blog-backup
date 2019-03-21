@@ -29,7 +29,7 @@
     components: {Comment},
     methods: {
       getArticleDetail() {
-        this.$axios.get("/api/articles/" + this.id).then(res => {
+        this.$axios.get("http://120.78.122.146:18090/articles/" + this.id).then(res => {
           res = res.data;
           if (res.success) {
             this.article = res.data;

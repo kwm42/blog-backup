@@ -43,7 +43,7 @@
     methods: {
       getArchieves() {
         this.$axios
-          .get("/api/archieves")
+          .get("http://120.78.122.146:18090/archieves")
           .then(res => {
             res = res.data;
             console.log("archieve", res);
@@ -58,7 +58,7 @@
           });
       },
       getArticles() {
-        this.$axios.get('/api/articles')
+        this.$axios.get('http://120.78.122.146:18090/articles')
             .then(res=>{
                 res=res.data
                 console.log("articles",res.data)
