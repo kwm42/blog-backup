@@ -1,8 +1,5 @@
 <template>
   <div class="detail-wrapper">
-    <div v-show="show">
-      <p>请稍等，正载入文章</p>
-    </div>
     <div>
       <h1 class="title">{{article.title}}</h1>
       <span>{{article.createTime}}</span>

@@ -5,11 +5,12 @@
     </div>
     <div id="phone-menu" class="hidden-md-and-up">
       <div id="menu-switch">
-        <icon-base>
-          <Close/>
-        </icon-base>
-        <span class="switch" @click="show=true" v-show="!show">open</span>
-        <span class="switch" @click="show=false" v-show="show">close</span>
+        <span class="switch" @click="show=true" v-show="!show">
+          open
+        </span>
+        <span class="switch" @click="show=false" v-show="show">
+          close
+        </span>
       </div>
       <div v-show="show" class="top-draw">
         <menu-for-phone></menu-for-phone>
@@ -112,6 +113,13 @@
 </script>
 
 <style scoped>
+  #phone-menu{
+    position: absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+  }
   .switch {
     position: fixed;
     top: 0px;

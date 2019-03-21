@@ -11,7 +11,9 @@
             <el-submenu index="2">
                 <template slot="title">归档</template>
                 <el-menu-item v-for="(archieve,index) in archieves" :key="index">
-                    {{archieve.date}}( {{archieve.summary}} )
+                    <router-link :to="{name:'archieve-list',params:{date:archieve.date}}">
+                        {{archieve.date}}({{archieve.summary}})
+                    </router-link>
                 </el-menu-item>
             </el-submenu>
             <el-menu-item index="3">
