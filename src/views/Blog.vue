@@ -19,8 +19,8 @@
     #bg{
         position: fixed;
         z-index: -100;
-        background-image: url(https://source.unsplash.com/random/1920x1080);
-        /* background-image: url("../static/img/bg.jpg"); */
+        /* background-image: url(https://source.unsplash.com/random/1920x1080); */
+        background-image: url("../static/img/bg.jpg");
         opacity: .7;
         width: 100%;
         top: 0px;
