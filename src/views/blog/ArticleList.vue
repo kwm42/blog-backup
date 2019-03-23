@@ -69,7 +69,7 @@
     },
     methods: {
       handleClick(id) {
-        this.$axios.get('/api/articles/' + id)
+        this.$axios.get('http://120.78.122.146:18090/articles/' + id)
           .then(res => {
             res = res.data
             console.log("load articles success", res.data)
