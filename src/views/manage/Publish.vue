@@ -8,7 +8,7 @@
         <el-input v-model="description"></el-input>
       </el-form-item>
       <el-form-item label="content">
-        <mavon-editor v-model="content" ref="mdeditor"/>
+        <mavon-editor v-model="content" ref="mdeditor" :ishljs="true"/>
       </el-form-item>
       <el-form-item>
         <el-button variant="info" @click="postArticle()">提交</el-button>
