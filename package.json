@@ -11,6 +11,7 @@
     "animate.css": "^3.7.0",
     "axios": "^0.18.0",
     "element-ui": "^2.4.5",
+    "mavon-editor": "^2.7.2",
     "vue": "^2.6.6",
     "vue-fullpage.js": "^0.1.2",
     "vue-particles": "^1.0.9",
@@ -19,7 +20,7 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-unit-mocha": "^3.4.0",
-    "@vue/cli-service": "^3.4.0",
+    "@vue/cli-service": "^3.5.1",
     "@vue/test-utils": "^1.0.0-beta.20",
     "chai": "^4.1.2",
     "vue-cli-plugin-element": "^1.0.1",

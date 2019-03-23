@@ -6,7 +6,8 @@ import './plugins/element.js'
 import VueFullPage from 'vue-fullpage.js'
 import Axios from 'axios'
 import VueParticles from 'vue-particles'
-Vue.use(VueParticles)
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 
 import '../node_modules/animate.css/animate.css'
 import '../node_modules/fullpage.js/dist/fullpage.css'
@@ -17,6 +18,9 @@ import './static/css/color.css'
 Vue.config.productionTip = false
 
 Vue.use(VueFullPage)
+Vue.use(mavonEditor)
+Vue.use(VueParticles)
+
 Vue.prototype.$axios=Axios
 
 new Vue({
