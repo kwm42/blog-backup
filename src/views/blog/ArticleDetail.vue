@@ -6,7 +6,9 @@
         <span>{{article.createTime}}</span>
         <span>{{article.author}}</span>
       </div>
-      <div v-html="article.content" class="mt20 detail"></div>
+      <div v-html="article.content" class="mt20 detail">
+
+      </div>
       <div class="comment">
         <Comment></Comment>
       </div>
@@ -25,22 +27,17 @@
       return {
         id: this.$route.params.id,
         show: true,
-        article: {}
-      };
+      }
+    },
+    computed:{
+      article:function () {
+        return this.$store.state.article
+      }
     },
     components: {Comment},
     methods: {
-      getArticleDetail() {
-        this.$axios.get("http://120.78.122.146:18090/articles/" + this.id).then(res => {
-          res = res.data;
-          if (res.success) {
-            this.article = res.data;
-          }
-        })
-      }
     },
     mounted: function () {
-      this.getArticleDetail();
     }
   };
 </script>

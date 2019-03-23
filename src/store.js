@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     archieves:[],
-    articles:[]
+    articles:[],
+    article:{}
   },
   getters:{
     getArticles(state){
@@ -16,9 +17,11 @@ export default new Vuex.Store({
       return state.archieves
     },
     getArticlesByArchieve:(state)=>(date)=>{
-      return articles.find(article.date=date)
+      return state.articles.find(article.date=date)
+    },
+    getArticle(state){
+      return state.article
     }
-
   },
   mutations: {
     setArticles(state,articles){
@@ -26,6 +29,9 @@ export default new Vuex.Store({
     },
     setArchieves(state,archieves){
       state.archieves=archieves
+    },
+    setArticle(state,article){
+      state.article=article
     }
   },
   actions: {

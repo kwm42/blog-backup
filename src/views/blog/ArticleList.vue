@@ -20,10 +20,12 @@
           v-for="(article,index) in articles"
       >
         <div slot="header">
-          <router-link :to="{name:'article-detail',params:{id:article.id}}">
-            <h2>{{article.title}}</h2>
-          </router-link>
-          <!-- <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button> -->
+          <!--<router-link :to="{name:'article-detail',params:{id:article.id}}">-->
+          <!--<h2>{{article.title}}</h2>-->
+          <!--</router-link>-->
+          <h2>
+            <a href="#" @click="handleClick(article.id)">{{article.title}}</a>
+          </h2>
         </div>
         <div v-for="o in 2" :key="o" class="text item">{{'列表内容 ' + article.description }}</div>
       </el-card>
@@ -44,14 +46,14 @@
     computed: {
       articles: {
         get() {
-          var date=this.$route.params.date
-          if (date==undefined){
+          var date = this.$route.params.date
+          if (date == undefined) {
             return this.$store.state.articles
-          }else{
-            return this.$store.state.articles.filter((ele)=>{
-              var d=ele.createTime
-              if(!d) return false;
-              return  (d.indexOf(date)>=0);
+          } else {
+            return this.$store.state.articles.filter((ele) => {
+              var d = ele.createTime
+              if (!d) return false;
+              return (d.indexOf(date) >= 0);
             })
           }
         },
@@ -66,43 +68,21 @@
       }
     },
     methods: {
-      getArticleList() {
-        this.$axios.get('120.78.122.146:18090/articles')
+      handleClick(id) {
+        this.$axios.get('/api/articles/' + id)
           .then(res => {
             res = res.data
-            console.log('articles', res.data)
-            // this.articles = res.data
+            console.log("load articles success", res.data)
+            this.$store.commit('setArticle', res.data)
           })
-          .catch(err => {
-            console.log(err)
+          .then(() => {
+            // this.$router.push({name: 'article-detail', params: {id: id}})
+            this.$router.push('/blog/detail/'+id)
+            window.scrollTo(0,0)
           })
-
-      },
-      getArticlesByArchieve() {
-        let date=this.$route.params.date
-        if(date==undefined){
-          console.error("no date params")
-        }else{
-          this.$axios.get('120.78.122.146:18090/archieve/'+date)
-            .then(res=>{
-              res=res.data
-              console.log('articles',res.data)
-              // this.articles=res.data
-            })
-            .catch(err=>{
-              console.error("retrieve articles error")
-            })
-        }
       }
     },
     mounted() {
-      // let date=this.$route.params.date
-      // if(date==undefined){
-      //   this.getArticleList();
-      // }else{
-      //   console.log("date",date)
-      //   this.getArticlesByArchieve();
-      // }
     }
   };
 </script>

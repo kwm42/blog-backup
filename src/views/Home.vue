@@ -5,19 +5,13 @@
     </div>
     <div id="phone-menu" class="hidden-md-and-up">
       <div id="menu-switch">
-        <span class="switch" @click="show=true" v-show="!show">
-          open
-        </span>
-        <span class="switch" @click="show=false" v-show="show">
-          close
-        </span>
       </div>
-      <div v-show="show" class="top-draw">
+      <div class="top-draw">
         <menu-for-phone></menu-for-phone>
       </div>
     </div>
     <transition
-        enter-active-class="animated pulse"
+        enter-active-class="animated fadeIn"
         leave-active-class="animated fadeOut"
         mode="out-in"
     >
@@ -117,9 +111,10 @@
     position: absolute;
     top:0px;
     left:0px;
-    width:100%;
+    width:50%;
     height:100%;
-    z-index: 100;
+    margin-left: -50%;
+    /*z-index: 100;*/
   }
   .switch {
     position: fixed;

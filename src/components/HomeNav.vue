@@ -8,8 +8,9 @@
                 <template slot="title">归档</template>
                 <el-menu-item v-for="(archieve,index) in archieves" :key="index">
                     <router-link :to="{name:'archieve-list',params:{date:archieve.date}}">
-                        {{archieve.date}}({{archieve.summary}})
+                        {{archieve.date}}
                     </router-link>
+                    <!--<a href="#" @click="handleClick()">{{archieve.date}}({{archieve.summary}})</a>-->
                 </el-menu-item>
             </el-submenu>
             <el-menu-item index="3">

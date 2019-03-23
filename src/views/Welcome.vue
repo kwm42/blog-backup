@@ -6,8 +6,8 @@
             </div>
             <div class="link">
                 <span><router-link :to="{name:'list'}">blog</router-link></span>
-                <span><router-link to="#">aboutme</router-link></span>
-                <span><router-link to="#">github</router-link></span>
+                <span><router-link :to="{name:'aboutme'}">aboutme</router-link></span>
+                <span><a href="http://github.com/kwm42">github</a></span>
             </div>
         </div>
         <vue-particles
