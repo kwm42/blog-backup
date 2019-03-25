@@ -10,13 +10,18 @@
         <menu-for-phone></menu-for-phone>
       </div>
     </div>
-    <transition
-        enter-active-class="animated fadeIn"
-        leave-active-class="animated fadeOut"
-        mode="out-in"
-    >
-      <router-view></router-view>
-    </transition>
+      <div>
+        <div class="operation">
+          <span class="return-top-btn" @click="returnTop()">Top</span>
+        </div>
+        <transition
+            enter-active-class="animated fadeIn"
+            leave-active-class="animated fadeOut"
+            mode="out-in"
+        >
+        <router-view></router-view>
+        </transition>
+      </div>
   </div>
 </template>
 
@@ -35,6 +40,9 @@
       };
     },
     methods: {
+      returnTop(){
+        window.scrollTo(0,0)
+      },
       getArchieves() {
         this.$axios
           .get("http://120.78.122.146:18090/archieves")
@@ -53,20 +61,20 @@
       },
       getArticles() {
         this.$axios.get('http://120.78.122.146:18090/articles')
-            .then(res=>{
-                res=res.data
-                console.log("articles",res.data)
-                if(res.success){
-                    this.$store.commit("setArticles",res.data)
-                }else{
-                    console.log("retrieve articles error")
-                }
-            })
-            .catch(err=>{
-                console.log("error occured=>",err)
-        })
+          .then(res => {
+            res = res.data
+            console.log("articles", res.data)
+            if (res.success) {
+              this.$store.commit("setArticles", res.data)
+            } else {
+              console.log("retrieve articles error")
+            }
+          })
+          .catch(err => {
+            console.log("error occured=>", err)
+          })
       },
-      setArticles(){
+      setArticles() {
         var articleList = [
           {
             title: "title1",
@@ -107,15 +115,16 @@
 </script>
 
 <style scoped>
-  #phone-menu{
+  #phone-menu {
     position: absolute;
-    top:0px;
-    left:0px;
-    width:50%;
-    height:100%;
+    top: 0px;
+    left: 0px;
+    width: 50%;
+    height: 100%;
     margin-left: -50%;
     /*z-index: 100;*/
   }
+
   .switch {
     position: fixed;
     top: 0px;
@@ -127,5 +136,39 @@
 
   .el-button + .el-button {
     margin-left: 0px;
+  }
+
+  .operation {
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+  }
+
+  .operation .return-top-btn {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: none;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 15px;
+    text-align: center;
+    align-items: center;
+    background-color: #91A0B3;
+    box-shadow: .1em .1em .3em grey;
+  }
+
+  .operation .return-top-btn:hover {
+    background-color: #718093;
+    box-shadow: .05em .05em .1em #718093;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 997px){
+    .operation {
+      position: fixed;
+      bottom: 5px;
+      left: 5px;
+    }
   }
 </style>

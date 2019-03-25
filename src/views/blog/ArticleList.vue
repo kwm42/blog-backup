@@ -24,10 +24,14 @@
           <!--<h2>{{article.title}}</h2>-->
           <!--</router-link>-->
           <h2>
-            <a href="#" @click="handleClick(article.id)">{{article.title}}</a>
+            <a @click="handleClick(article.id)">{{article.title}}</a>
           </h2>
         </div>
-        <div v-for="o in 2" :key="o" class="text item">{{'列表内容 ' + article.description }}</div>
+        <div class="description item">{{article.description }}</div>
+        <div class="meta">
+          <span class="fl">{{article.createTime}}</span>
+          <span class="fr">KWM</span>
+        </div>
       </el-card>
     </div>
     <div class="navigation"></div>
@@ -72,7 +76,7 @@
         this.$axios.get('http://120.78.122.146:18090/articles/' + id)
           .then(res => {
             res = res.data
-            console.log("load articles success", res.data)
+            // console.log("load articles success", res.data)
             this.$store.commit('setArticle', res.data)
           })
           .then(() => {
@@ -110,6 +114,7 @@
   }
 
   .box-card a {
+    color: #006;
     text-decoration: none;
   }
 
@@ -117,6 +122,11 @@
     color: blue;
   }
 
+  .description{
+    min-height: 60px;
+    color: black;
+    font-size: 15px;
+  }
   @media screen and (max-width: 997px) {
     .article-list {
       width: 90%;
